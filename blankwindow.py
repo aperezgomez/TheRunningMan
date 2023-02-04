@@ -3,7 +3,7 @@ from sys import exit
 
 def display_score():
     current_time = int(pygame.time.get_ticks() / 1000) - start_time
-    score_surface = test_font.render(f'{current_time}', False, (64,64,64))
+    score_surface = test_font.render(f'Score: {current_time}', False, (64,64,64))
     score_rectangle = score_surface.get_rect(center = (400,50))
     screen.blit(score_surface,score_rectangle)
 
@@ -45,7 +45,7 @@ while True:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 game_active = True
                 snail_rectangle.left = 800
-                start_time = pygame.time.get_ticks()
+                start_time = int(pygame.time.get_ticks() / 1000)
     
     if game_active:
         screen.blit(sky_surface,(0,0))
